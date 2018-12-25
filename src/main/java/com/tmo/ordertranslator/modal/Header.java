@@ -1,189 +1,521 @@
 package com.tmo.ordertranslator.modal;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
-public class Header {
-    private String OrderStatus;
-    private String StoreCode;
-    private String FlowType;
-    private String ApplicationId;
-    private String CreatedDate;
-    private String Locale;
-    private String Currency;
-    private String OrderNumber;
-    private String EmailFrom;
-    private String TotalItemCostBeforeTax;
-    private String TotalShippingCostBeforeTax;
-    private String TotalItemTaxes;
-    private String TotalShippingTaxes;
-    private String TotalTaxes;
-    private String TotalItemCostIncludingTax;
-    private String TotalShippingCostIncludingTax;
-    private String TotalLoanAmount;
-    private String GrandTotal;
-    Promotions PromotionsObject;
-    Fields FieldsObject;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
 
+@XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "orderStatus",
+        "storeCode",
+        "flowType",
+        "applicationId",
+        "createdDate",
+        "locale",
+        "currency",
+        "orderNumber",
+        "emailFrom",
+        "totalItemCostBeforeTax",
+        "totalShippingCostBeforeTax",
+        "totalItemTaxes",
+        "totalShippingTaxes",
+        "totalTaxes",
+        "totalItemCostIncludingTax",
+        "totalShippingCostIncludingTax",
+        "totalLoanAmount",
+        "grandTotal",
+        "promotions",
+        "fields"
+    })
+    public class Header {
 
-    // Getter Methods 
+        @XmlElement(name = "OrderStatus", required = true)
+        protected String orderStatus;
+        @XmlElement(name = "StoreCode", required = true)
+        protected String storeCode;
+        @XmlElement(name = "FlowType", required = true)
+        protected String flowType;
+        @XmlElement(name = "ApplicationId", required = true)
+        protected String applicationId;
+        @XmlElement(name = "CreatedDate", required = true)
+        @XmlSchemaType(name = "dateTime")
+        protected XMLGregorianCalendar createdDate;
+        @XmlElement(name = "Locale", required = true)
+        protected String locale;
+        @XmlElement(name = "Currency", required = true)
+        protected String currency;
+        @XmlElement(name = "OrderNumber", required = true)
+        @XmlSchemaType(name = "unsignedLong")
+        protected BigInteger orderNumber;
+        @XmlElement(name = "EmailFrom", required = true)
+        protected String emailFrom;
+        @XmlElement(name = "TotalItemCostBeforeTax", required = true)
+        protected BigDecimal totalItemCostBeforeTax;
+        @XmlElement(name = "TotalShippingCostBeforeTax", required = true)
+        protected BigDecimal totalShippingCostBeforeTax;
+        @XmlElement(name = "TotalItemTaxes", required = true)
+        protected BigDecimal totalItemTaxes;
+        @XmlElement(name = "TotalShippingTaxes", required = true)
+        protected BigDecimal totalShippingTaxes;
+        @XmlElement(name = "TotalTaxes", required = true)
+        protected BigDecimal totalTaxes;
+        @XmlElement(name = "TotalItemCostIncludingTax", required = true)
+        protected BigDecimal totalItemCostIncludingTax;
+        @XmlElement(name = "TotalShippingCostIncludingTax", required = true)
+        protected BigDecimal totalShippingCostIncludingTax;
+        @XmlElement(name = "TotalLoanAmount", required = true)
+        protected BigDecimal totalLoanAmount;
+        @XmlElement(name = "GrandTotal", required = true)
+        protected BigDecimal grandTotal;
+        @XmlElement(name = "Promotions", required = true)
+        protected Promotions promotions;
+        @XmlElement(name = "Fields", required = true)
+        protected Fields fields;
 
-    public String getOrderStatus() {
-     return OrderStatus;
-    }
+        /**
+         * Gets the value of the orderStatus property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getOrderStatus() {
+            return orderStatus;
+        }
 
-    public String getStoreCode() {
-     return StoreCode;
-    }
+        /**
+         * Sets the value of the orderStatus property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setOrderStatus(String value) {
+            this.orderStatus = value;
+        }
 
-    public String getFlowType() {
-     return FlowType;
-    }
+        /**
+         * Gets the value of the storeCode property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getStoreCode() {
+            return storeCode;
+        }
 
-    public String getApplicationId() {
-     return ApplicationId;
-    }
+        /**
+         * Sets the value of the storeCode property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setStoreCode(String value) {
+            this.storeCode = value;
+        }
 
-    public String getCreatedDate() {
-     return CreatedDate;
-    }
+        /**
+         * Gets the value of the flowType property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getFlowType() {
+            return flowType;
+        }
 
-    public String getLocale() {
-     return Locale;
-    }
+        /**
+         * Sets the value of the flowType property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setFlowType(String value) {
+            this.flowType = value;
+        }
 
-    public String getCurrency() {
-     return Currency;
-    }
+        /**
+         * Gets the value of the applicationId property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getApplicationId() {
+            return applicationId;
+        }
 
-    public String getOrderNumber() {
-     return OrderNumber;
-    }
+        /**
+         * Sets the value of the applicationId property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setApplicationId(String value) {
+            this.applicationId = value;
+        }
 
-    public String getEmailFrom() {
-     return EmailFrom;
-    }
+        /**
+         * Gets the value of the createdDate property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link XMLGregorianCalendar }
+         *     
+         */
+        public XMLGregorianCalendar getCreatedDate() {
+            return createdDate;
+        }
 
-    public String getTotalItemCostBeforeTax() {
-     return TotalItemCostBeforeTax;
-    }
+        /**
+         * Sets the value of the createdDate property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link XMLGregorianCalendar }
+         *     
+         */
+        public void setCreatedDate(XMLGregorianCalendar value) {
+            this.createdDate = value;
+        }
 
-    public String getTotalShippingCostBeforeTax() {
-     return TotalShippingCostBeforeTax;
-    }
+        /**
+         * Gets the value of the locale property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getLocale() {
+            return locale;
+        }
 
-    public String getTotalItemTaxes() {
-     return TotalItemTaxes;
-    }
+        /**
+         * Sets the value of the locale property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setLocale(String value) {
+            this.locale = value;
+        }
 
-    public String getTotalShippingTaxes() {
-     return TotalShippingTaxes;
-    }
+        /**
+         * Gets the value of the currency property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getCurrency() {
+            return currency;
+        }
 
-    public String getTotalTaxes() {
-     return TotalTaxes;
-    }
+        /**
+         * Sets the value of the currency property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setCurrency(String value) {
+            this.currency = value;
+        }
 
-    public String getTotalItemCostIncludingTax() {
-     return TotalItemCostIncludingTax;
-    }
+        /**
+         * Gets the value of the orderNumber property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link BigInteger }
+         *     
+         */
+        public BigInteger getOrderNumber() {
+            return orderNumber;
+        }
 
-    public String getTotalShippingCostIncludingTax() {
-     return TotalShippingCostIncludingTax;
-    }
+        /**
+         * Sets the value of the orderNumber property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link BigInteger }
+         *     
+         */
+        public void setOrderNumber(BigInteger value) {
+            this.orderNumber = value;
+        }
 
-    public String getTotalLoanAmount() {
-     return TotalLoanAmount;
-    }
+        /**
+         * Gets the value of the emailFrom property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getEmailFrom() {
+            return emailFrom;
+        }
 
-    public String getGrandTotal() {
-     return GrandTotal;
-    }
+        /**
+         * Sets the value of the emailFrom property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setEmailFrom(String value) {
+            this.emailFrom = value;
+        }
 
-    public Promotions getPromotions() {
-     return PromotionsObject;
-    }
+        /**
+         * Gets the value of the totalItemCostBeforeTax property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link BigDecimal }
+         *     
+         */
+        public BigDecimal getTotalItemCostBeforeTax() {
+            return totalItemCostBeforeTax;
+        }
 
-    public Fields getFields() {
-     return FieldsObject;
-    }
+        /**
+         * Sets the value of the totalItemCostBeforeTax property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link BigDecimal }
+         *     
+         */
+        public void setTotalItemCostBeforeTax(BigDecimal value) {
+            this.totalItemCostBeforeTax = value;
+        }
 
-    // Setter Methods 
+        /**
+         * Gets the value of the totalShippingCostBeforeTax property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link BigDecimal }
+         *     
+         */
+        public BigDecimal getTotalShippingCostBeforeTax() {
+            return totalShippingCostBeforeTax;
+        }
 
-    public void setOrderStatus(String OrderStatus) {
-     this.OrderStatus = OrderStatus;
-    }
+        /**
+         * Sets the value of the totalShippingCostBeforeTax property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link BigDecimal }
+         *     
+         */
+        public void setTotalShippingCostBeforeTax(BigDecimal value) {
+            this.totalShippingCostBeforeTax = value;
+        }
 
-    public void setStoreCode(String StoreCode) {
-     this.StoreCode = StoreCode;
-    }
+        /**
+         * Gets the value of the totalItemTaxes property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link BigDecimal }
+         *     
+         */
+        public BigDecimal getTotalItemTaxes() {
+            return totalItemTaxes;
+        }
 
-    public void setFlowType(String FlowType) {
-     this.FlowType = FlowType;
-    }
+        /**
+         * Sets the value of the totalItemTaxes property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link BigDecimal }
+         *     
+         */
+        public void setTotalItemTaxes(BigDecimal value) {
+            this.totalItemTaxes = value;
+        }
 
-    public void setApplicationId(String ApplicationId) {
-     this.ApplicationId = ApplicationId;
-    }
+        /**
+         * Gets the value of the totalShippingTaxes property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link BigDecimal }
+         *     
+         */
+        public BigDecimal getTotalShippingTaxes() {
+            return totalShippingTaxes;
+        }
 
-    public void setCreatedDate(String CreatedDate) {
-     this.CreatedDate = CreatedDate;
-    }
+        /**
+         * Sets the value of the totalShippingTaxes property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link BigDecimal }
+         *     
+         */
+        public void setTotalShippingTaxes(BigDecimal value) {
+            this.totalShippingTaxes = value;
+        }
 
-    public void setLocale(String Locale) {
-     this.Locale = Locale;
-    }
+        /**
+         * Gets the value of the totalTaxes property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link BigDecimal }
+         *     
+         */
+        public BigDecimal getTotalTaxes() {
+            return totalTaxes;
+        }
 
-    public void setCurrency(String Currency) {
-     this.Currency = Currency;
-    }
+        /**
+         * Sets the value of the totalTaxes property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link BigDecimal }
+         *     
+         */
+        public void setTotalTaxes(BigDecimal value) {
+            this.totalTaxes = value;
+        }
 
-    public void setOrderNumber(String OrderNumber) {
-     this.OrderNumber = OrderNumber;
-    }
+        /**
+         * Gets the value of the totalItemCostIncludingTax property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link BigDecimal }
+         *     
+         */
+        public BigDecimal getTotalItemCostIncludingTax() {
+            return totalItemCostIncludingTax;
+        }
 
-    public void setEmailFrom(String EmailFrom) {
-     this.EmailFrom = EmailFrom;
-    }
+        /**
+         * Sets the value of the totalItemCostIncludingTax property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link BigDecimal }
+         *     
+         */
+        public void setTotalItemCostIncludingTax(BigDecimal value) {
+            this.totalItemCostIncludingTax = value;
+        }
 
-    public void setTotalItemCostBeforeTax(String TotalItemCostBeforeTax) {
-     this.TotalItemCostBeforeTax = TotalItemCostBeforeTax;
-    }
+        /**
+         * Gets the value of the totalShippingCostIncludingTax property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link BigDecimal }
+         *     
+         */
+        public BigDecimal getTotalShippingCostIncludingTax() {
+            return totalShippingCostIncludingTax;
+        }
 
-    public void setTotalShippingCostBeforeTax(String TotalShippingCostBeforeTax) {
-     this.TotalShippingCostBeforeTax = TotalShippingCostBeforeTax;
-    }
+        /**
+         * Sets the value of the totalShippingCostIncludingTax property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link BigDecimal }
+         *     
+         */
+        public void setTotalShippingCostIncludingTax(BigDecimal value) {
+            this.totalShippingCostIncludingTax = value;
+        }
 
-    public void setTotalItemTaxes(String TotalItemTaxes) {
-     this.TotalItemTaxes = TotalItemTaxes;
-    }
+        /**
+         * Gets the value of the totalLoanAmount property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link BigDecimal }
+         *     
+         */
+        public BigDecimal getTotalLoanAmount() {
+            return totalLoanAmount;
+        }
 
-    public void setTotalShippingTaxes(String TotalShippingTaxes) {
-     this.TotalShippingTaxes = TotalShippingTaxes;
-    }
+        /**
+         * Sets the value of the totalLoanAmount property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link BigDecimal }
+         *     
+         */
+        public void setTotalLoanAmount(BigDecimal value) {
+            this.totalLoanAmount = value;
+        }
 
-    public void setTotalTaxes(String TotalTaxes) {
-     this.TotalTaxes = TotalTaxes;
-    }
+        /**
+         * Gets the value of the grandTotal property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link BigDecimal }
+         *     
+         */
+        public BigDecimal getGrandTotal() {
+            return grandTotal;
+        }
 
-    public void setTotalItemCostIncludingTax(String TotalItemCostIncludingTax) {
-     this.TotalItemCostIncludingTax = TotalItemCostIncludingTax;
-    }
+        /**
+         * Sets the value of the grandTotal property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link BigDecimal }
+         *     
+         */
+        public void setGrandTotal(BigDecimal value) {
+            this.grandTotal = value;
+        }
 
-    public void setTotalShippingCostIncludingTax(String TotalShippingCostIncludingTax) {
-     this.TotalShippingCostIncludingTax = TotalShippingCostIncludingTax;
-    }
-
-    public void setTotalLoanAmount(String TotalLoanAmount) {
-     this.TotalLoanAmount = TotalLoanAmount;
-    }
-
-    public void setGrandTotal(String GrandTotal) {
-     this.GrandTotal = GrandTotal;
-    }
-
-    public void setPromotions(Promotions PromotionsObject) {
-     this.PromotionsObject = PromotionsObject;
-    }
-
-    public void setFields(Fields FieldsObject) {
-     this.FieldsObject = FieldsObject;
-    }
-   }
+        /**
+         * Gets the value of the promotions property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link Order.Header.Promotions }
+         *     
+         */
+        
+}

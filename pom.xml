@@ -8,10 +8,10 @@
 		<version>2.1.1.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>spring-hudoku-example</artifactId>
+	<groupId>com.tmo</groupId>
+	<artifactId>OrderTranslator</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-hudoku-example</name>
+	<name>OrderTranslator</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -29,6 +29,11 @@
     <artifactId>spring-boot-starter-web</artifactId>
     <version>2.1.1.RELEASE</version>
     </dependency>
+    
+    <dependency>
+    <groupId>com.fasterxml.jackson.dataformat</groupId>
+    <artifactId>jackson-dataformat-xml</artifactId>
+</dependency>
 		
 
 		<dependency>

@@ -1,79 +1,182 @@
+
+package com.tmo.ordertranslator.modal;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "", propOrder = {
+    "header",
+    "customer",
+    "shipments",
+    "addresses",
+    "payments",
+    "bundleLineItems"
+})
+@XmlRootElement(name = "Order")
 public class Order {
- Header HeaderObject;
- Customer CustomerObject;
- Shipments ShipmentsObject;
- Addresses AddressesObject;
- Payments PaymentsObject;
- private String BundleLineItems;
- private String xmlns;
- private String xmlns:ns2;
 
+    @XmlElement(name = "Header", required = true)
+    protected Header header;
+    @XmlElement(name = "Customer", required = true)
+    protected Customer customer;
+    @XmlElement(name = "Shipments", required = true)
+    protected Shipments shipments;
+    @XmlElement(name = "Addresses", required = true)
+    protected Addresses addresses;
+    @XmlElement(name = "Payments", required = true)
+    protected Payments payments;
+    @XmlElement(name = "BundleLineItems", required = true)
+    protected Object bundleLineItems;
 
- // Getter Methods 
+    /**
+     * Gets the value of the header property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Order.Header }
+     *     
+     */
+    public Header getHeader() {
+        return header;
+    }
 
- public Header getHeader() {
-  return HeaderObject;
- }
+    /**
+     * Sets the value of the header property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Order.Header }
+     *     
+     */
+    public void setHeader(Header value) {
+        this.header = value;
+    }
 
- public Customer getCustomer() {
-  return CustomerObject;
- }
+    /**
+     * Gets the value of the customer property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Customer }
+     *     
+     */
+    public Customer getCustomer() {
+        return customer;
+    }
 
- public Shipments getShipments() {
-  return ShipmentsObject;
- }
+    /**
+     * Sets the value of the customer property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Customer }
+     *     
+     */
+    public void setCustomer(Customer value) {
+        this.customer = value;
+    }
 
- public Addresses getAddresses() {
-  return AddressesObject;
- }
+    /**
+     * Gets the value of the shipments property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Shipments }
+     *     
+     */
+    public Shipments getShipments() {
+        return shipments;
+    }
 
- public Payments getPayments() {
-  return PaymentsObject;
- }
+    /**
+     * Sets the value of the shipments property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Shipments }
+     *     
+     */
+    public void setShipments(Shipments value) {
+        this.shipments = value;
+    }
 
- public String getBundleLineItems() {
-  return BundleLineItems;
- }
+    /**
+     * Gets the value of the addresses property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Addresses }
+     *     
+     */
+    public Addresses getAddresses() {
+        return addresses;
+    }
 
- public String get_xmlns() {
-  return _xmlns;
- }
+    /**
+     * Sets the value of the addresses property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Addresses }
+     *     
+     */
+    public void setAddresses(Addresses value) {
+        this.addresses = value;
+    }
 
- public String get_xmlns: ns2() {
-  return _xmlns: ns2;
- }
+    /**
+     * Gets the value of the payments property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Payments }
+     *     
+     */
+    public Payments getPayments() {
+        return payments;
+    }
 
- // Setter Methods 
+    /**
+     * Sets the value of the payments property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Payments }
+     *     
+     */
+    public void setPayments(Payments value) {
+        this.payments = value;
+    }
 
- public void setHeader(Header HeaderObject) {
-  this.HeaderObject = HeaderObject;
- }
+    /**
+     * Gets the value of the bundleLineItems property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Object }
+     *     
+     */
+    public Object getBundleLineItems() {
+        return bundleLineItems;
+    }
 
- public void setCustomer(Customer CustomerObject) {
-  this.CustomerObject = CustomerObject;
- }
+    /**
+     * Sets the value of the bundleLineItems property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Object }
+     *     
+     */
+    public void setBundleLineItems(Object value) {
+        this.bundleLineItems = value;
+    }
+      
+        }
 
- public void setShipments(Shipments ShipmentsObject) {
-  this.ShipmentsObject = ShipmentsObject;
- }
+    
 
- public void setAddresses(Addresses AddressesObject) {
-  this.AddressesObject = AddressesObject;
- }
-
- public void setPayments(Payments PaymentsObject) {
-  this.PaymentsObject = PaymentsObject;
- }
-
- public void setBundleLineItems(String BundleLineItems) {
-  this.BundleLineItems = BundleLineItems;
- }
-
- public void set_xmlns(String _xmlns) {
-  this._xmlns = _xmlns;
- }
-
- public void set_xmlns: ns2(String _xmlns: ns2) {
-  this._xmlns: ns2 = _xmlns: ns2;
- }
-}
