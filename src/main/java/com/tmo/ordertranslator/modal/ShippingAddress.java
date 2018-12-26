@@ -1,278 +1,130 @@
 package com.tmo.ordertranslator.modal;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-/**
- * <p>Java class for anonymous complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{http://com.elasticpath/repo/common}AddressId"/>
- *         &lt;element ref="{http://com.elasticpath/repo/common}AddressType"/>
- *         &lt;element ref="{http://com.elasticpath/repo/common}FirstName"/>
- *         &lt;element ref="{http://com.elasticpath/repo/common}LastName"/>
- *         &lt;element ref="{http://com.elasticpath/repo/common}Street1"/>
- *         &lt;element ref="{http://com.elasticpath/repo/common}City"/>
- *         &lt;element ref="{http://com.elasticpath/repo/common}Region"/>
- *         &lt;element ref="{http://com.elasticpath/repo/common}Country"/>
- *         &lt;element ref="{http://com.elasticpath/repo/common}ZipPostalCode"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "addressId",
-    "addressType",
-    "firstName",
-    "lastName",
-    "street1",
-    "city",
-    "region",
-    "country",
-    "zipPostalCode"
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+"AddressId",
+"AddressType",
+"FirstName",
+"LastName",
+"Street1",
+"City",
+"Region",
+"Country",
+"ZipPostalCode"
 })
 public class ShippingAddress {
 
-    @XmlElement(name = "AddressId", namespace = "http://com.elasticpath/repo/common", required = true)
-    protected String addressId;
-    @XmlElement(name = "AddressType", namespace = "http://com.elasticpath/repo/common", required = true)
-    protected String addressType;
-    @XmlElement(name = "FirstName", namespace = "http://com.elasticpath/repo/common", required = true)
-    protected String firstName;
-    @XmlElement(name = "LastName", namespace = "http://com.elasticpath/repo/common", required = true)
-    protected String lastName;
-    @XmlElement(name = "Street1", namespace = "http://com.elasticpath/repo/common", required = true)
-    protected String street1;
-    @XmlElement(name = "City", namespace = "http://com.elasticpath/repo/common", required = true)
-    protected String city;
-    @XmlElement(name = "Region", namespace = "http://com.elasticpath/repo/common", required = true)
-    protected String region;
-    @XmlElement(name = "Country", namespace = "http://com.elasticpath/repo/common", required = true)
-    protected String country;
-    @XmlElement(name = "ZipPostalCode", namespace = "http://com.elasticpath/repo/common")
-    @XmlSchemaType(name = "unsignedShort")
-    protected int zipPostalCode;
+@JsonProperty("AddressId")
+private String addressId;
+@JsonProperty("AddressType")
+private String addressType;
+@JsonProperty("FirstName")
+private String firstName;
+@JsonProperty("LastName")
+private String lastName;
+@JsonProperty("Street1")
+private String street1;
+@JsonProperty("City")
+private String city;
+@JsonProperty("Region")
+private String region;
+@JsonProperty("Country")
+private String country;
+@JsonProperty("ZipPostalCode")
+private String zipPostalCode;
 
-    /**
-     * Gets the value of the addressId property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAddressId() {
-        return addressId;
-    }
+@JsonProperty("AddressId")
+public String getAddressId() {
+return addressId;
+}
 
-    /**
-     * Sets the value of the addressId property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAddressId(String value) {
-        this.addressId = value;
-    }
+@JsonProperty("AddressId")
+public void setAddressId(String addressId) {
+this.addressId = addressId;
+}
 
-    /**
-     * Gets the value of the addressType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAddressType() {
-        return addressType;
-    }
+@JsonProperty("AddressType")
+public String getAddressType() {
+return addressType;
+}
 
-    /**
-     * Sets the value of the addressType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAddressType(String value) {
-        this.addressType = value;
-    }
+@JsonProperty("AddressType")
+public void setAddressType(String addressType) {
+this.addressType = addressType;
+}
 
-    /**
-     * Gets the value of the firstName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getFirstName() {
-        return firstName;
-    }
+@JsonProperty("FirstName")
+public String getFirstName() {
+return firstName;
+}
 
-    /**
-     * Sets the value of the firstName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setFirstName(String value) {
-        this.firstName = value;
-    }
+@JsonProperty("FirstName")
+public void setFirstName(String firstName) {
+this.firstName = firstName;
+}
 
-    /**
-     * Gets the value of the lastName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getLastName() {
-        return lastName;
-    }
+@JsonProperty("LastName")
+public String getLastName() {
+return lastName;
+}
 
-    /**
-     * Sets the value of the lastName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setLastName(String value) {
-        this.lastName = value;
-    }
+@JsonProperty("LastName")
+public void setLastName(String lastName) {
+this.lastName = lastName;
+}
 
-    /**
-     * Gets the value of the street1 property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getStreet1() {
-        return street1;
-    }
+@JsonProperty("Street1")
+public String getStreet1() {
+return street1;
+}
 
-    /**
-     * Sets the value of the street1 property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setStreet1(String value) {
-        this.street1 = value;
-    }
+@JsonProperty("Street1")
+public void setStreet1(String street1) {
+this.street1 = street1;
+}
 
-    /**
-     * Gets the value of the city property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCity() {
-        return city;
-    }
+@JsonProperty("City")
+public String getCity() {
+return city;
+}
 
-    /**
-     * Sets the value of the city property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCity(String value) {
-        this.city = value;
-    }
+@JsonProperty("City")
+public void setCity(String city) {
+this.city = city;
+}
 
-    /**
-     * Gets the value of the region property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getRegion() {
-        return region;
-    }
+@JsonProperty("Region")
+public String getRegion() {
+return region;
+}
 
-    /**
-     * Sets the value of the region property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setRegion(String value) {
-        this.region = value;
-    }
+@JsonProperty("Region")
+public void setRegion(String region) {
+this.region = region;
+}
 
-    /**
-     * Gets the value of the country property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCountry() {
-        return country;
-    }
+@JsonProperty("Country")
+public String getCountry() {
+return country;
+}
 
-    /**
-     * Sets the value of the country property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCountry(String value) {
-        this.country = value;
-    }
+@JsonProperty("Country")
+public void setCountry(String country) {
+this.country = country;
+}
 
-    /**
-     * Gets the value of the zipPostalCode property.
-     * 
-     */
-    public int getZipPostalCode() {
-        return zipPostalCode;
-    }
+@JsonProperty("ZipPostalCode")
+public String getZipPostalCode() {
+return zipPostalCode;
+}
 
-    /**
-     * Sets the value of the zipPostalCode property.
-     * 
-     */
-    public void setZipPostalCode(int value) {
-        this.zipPostalCode = value;
-    }
+@JsonProperty("ZipPostalCode")
+public void setZipPostalCode(String zipPostalCode) {
+this.zipPostalCode = zipPostalCode;
+}
 
 }

@@ -1,234 +1,130 @@
 package com.tmo.ordertranslator.modal;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-/**
- * <p>Java class for anonymous complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="PaymentType" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="TSafeAlias" type="{http://www.w3.org/2001/XMLSchema}unsignedInt"/>
- *         &lt;element name="CreditCardType" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="CreditCardLastFourDigits" type="{http://www.w3.org/2001/XMLSchema}unsignedShort"/>
- *         &lt;element name="CreditCardExpirationMonth" type="{http://www.w3.org/2001/XMLSchema}unsignedByte"/>
- *         &lt;element name="CreditCardExpirationYear" type="{http://www.w3.org/2001/XMLSchema}unsignedShort"/>
- *         &lt;element name="CreditCardNameOnAccount" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="CreditCardAuthorizationCode" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "paymentType",
-    "tSafeAlias",
-    "creditCardType",
-    "creditCardLastFourDigits",
-    "creditCardExpirationMonth",
-    "creditCardExpirationYear",
-    "creditCardNameOnAccount",
-    "creditCardAuthorizationCode"
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+"type",
+"PaymentType",
+"TSafeAlias",
+"CreditCardType",
+"CreditCardLastFourDigits",
+"CreditCardExpirationMonth",
+"CreditCardExpirationYear",
+"CreditCardNameOnAccount",
+"CreditCardAuthorizationCode"
 })
-public  class PaymentMethod {
+public class PaymentMethod {
 
-    @XmlElement(name = "PaymentType", required = true)
-    protected String paymentType;
-    @XmlElement(name = "TSafeAlias")
-    @XmlSchemaType(name = "unsignedInt")
-    protected long tSafeAlias;
-    @XmlElement(name = "CreditCardType", required = true)
-    protected String creditCardType;
-    @XmlElement(name = "CreditCardLastFourDigits")
-    @XmlSchemaType(name = "unsignedShort")
-    protected int creditCardLastFourDigits;
-    @XmlElement(name = "CreditCardExpirationMonth")
-    @XmlSchemaType(name = "unsignedByte")
-    protected short creditCardExpirationMonth;
-    @XmlElement(name = "CreditCardExpirationYear")
-    @XmlSchemaType(name = "unsignedShort")
-    protected int creditCardExpirationYear;
-    @XmlElement(name = "CreditCardNameOnAccount", required = true)
-    protected String creditCardNameOnAccount;
-    @XmlElement(name = "CreditCardAuthorizationCode", required = true)
-    protected String creditCardAuthorizationCode;
+@JsonProperty("type")
+private String type;
+@JsonProperty("PaymentType")
+private String paymentType;
+@JsonProperty("TSafeAlias")
+private String tSafeAlias;
+@JsonProperty("CreditCardType")
+private String creditCardType;
+@JsonProperty("CreditCardLastFourDigits")
+private String creditCardLastFourDigits;
+@JsonProperty("CreditCardExpirationMonth")
+private String creditCardExpirationMonth;
+@JsonProperty("CreditCardExpirationYear")
+private String creditCardExpirationYear;
+@JsonProperty("CreditCardNameOnAccount")
+private String creditCardNameOnAccount;
+@JsonProperty("CreditCardAuthorizationCode")
+private String creditCardAuthorizationCode;
 
-    /**
-     * Gets the value of the paymentType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPaymentType() {
-        return paymentType;
-    }
-
-    /**
-     * Sets the value of the paymentType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPaymentType(String value) {
-        this.paymentType = value;
-    }
-
-    /**
-     * Gets the value of the tSafeAlias property.
-     * 
-     */
-    public long getTSafeAlias() {
-        return tSafeAlias;
-    }
-
-    /**
-     * Sets the value of the tSafeAlias property.
-     * 
-     */
-    public void setTSafeAlias(long value) {
-        this.tSafeAlias = value;
-    }
-
-    /**
-     * Gets the value of the creditCardType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCreditCardType() {
-        return creditCardType;
-    }
-
-    /**
-     * Sets the value of the creditCardType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCreditCardType(String value) {
-        this.creditCardType = value;
-    }
-
-    /**
-     * Gets the value of the creditCardLastFourDigits property.
-     * 
-     */
-    public int getCreditCardLastFourDigits() {
-        return creditCardLastFourDigits;
-    }
-
-    /**
-     * Sets the value of the creditCardLastFourDigits property.
-     * 
-     */
-    public void setCreditCardLastFourDigits(int value) {
-        this.creditCardLastFourDigits = value;
-    }
-
-    /**
-     * Gets the value of the creditCardExpirationMonth property.
-     * 
-     */
-    public short getCreditCardExpirationMonth() {
-        return creditCardExpirationMonth;
-    }
-
-    /**
-     * Sets the value of the creditCardExpirationMonth property.
-     * 
-     */
-    public void setCreditCardExpirationMonth(short value) {
-        this.creditCardExpirationMonth = value;
-    }
-
-    /**
-     * Gets the value of the creditCardExpirationYear property.
-     * 
-     */
-    public int getCreditCardExpirationYear() {
-        return creditCardExpirationYear;
-    }
-
-    /**
-     * Sets the value of the creditCardExpirationYear property.
-     * 
-     */
-    public void setCreditCardExpirationYear(int value) {
-        this.creditCardExpirationYear = value;
-    }
-
-    /**
-     * Gets the value of the creditCardNameOnAccount property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCreditCardNameOnAccount() {
-        return creditCardNameOnAccount;
-    }
-
-    /**
-     * Sets the value of the creditCardNameOnAccount property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCreditCardNameOnAccount(String value) {
-        this.creditCardNameOnAccount = value;
-    }
-
-    /**
-     * Gets the value of the creditCardAuthorizationCode property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCreditCardAuthorizationCode() {
-        return creditCardAuthorizationCode;
-    }
-
-    /**
-     * Sets the value of the creditCardAuthorizationCode property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCreditCardAuthorizationCode(String value) {
-        this.creditCardAuthorizationCode = value;
-    }
-
+@JsonProperty("type")
+public String getType() {
+return type;
 }
 
+@JsonProperty("type")
+public void setType(String type) {
+this.type = type;
+}
 
+@JsonProperty("PaymentType")
+public String getPaymentType() {
+return paymentType;
+}
 
+@JsonProperty("PaymentType")
+public void setPaymentType(String paymentType) {
+this.paymentType = paymentType;
+}
 
-        
+@JsonProperty("TSafeAlias")
+public String getTSafeAlias() {
+return tSafeAlias;
+}
+
+@JsonProperty("TSafeAlias")
+public void setTSafeAlias(String tSafeAlias) {
+this.tSafeAlias = tSafeAlias;
+}
+
+@JsonProperty("CreditCardType")
+public String getCreditCardType() {
+return creditCardType;
+}
+
+@JsonProperty("CreditCardType")
+public void setCreditCardType(String creditCardType) {
+this.creditCardType = creditCardType;
+}
+
+@JsonProperty("CreditCardLastFourDigits")
+public String getCreditCardLastFourDigits() {
+return creditCardLastFourDigits;
+}
+
+@JsonProperty("CreditCardLastFourDigits")
+public void setCreditCardLastFourDigits(String creditCardLastFourDigits) {
+this.creditCardLastFourDigits = creditCardLastFourDigits;
+}
+
+@JsonProperty("CreditCardExpirationMonth")
+public String getCreditCardExpirationMonth() {
+return creditCardExpirationMonth;
+}
+
+@JsonProperty("CreditCardExpirationMonth")
+public void setCreditCardExpirationMonth(String creditCardExpirationMonth) {
+this.creditCardExpirationMonth = creditCardExpirationMonth;
+}
+
+@JsonProperty("CreditCardExpirationYear")
+public String getCreditCardExpirationYear() {
+return creditCardExpirationYear;
+}
+
+@JsonProperty("CreditCardExpirationYear")
+public void setCreditCardExpirationYear(String creditCardExpirationYear) {
+this.creditCardExpirationYear = creditCardExpirationYear;
+}
+
+@JsonProperty("CreditCardNameOnAccount")
+public String getCreditCardNameOnAccount() {
+return creditCardNameOnAccount;
+}
+
+@JsonProperty("CreditCardNameOnAccount")
+public void setCreditCardNameOnAccount(String creditCardNameOnAccount) {
+this.creditCardNameOnAccount = creditCardNameOnAccount;
+}
+
+@JsonProperty("CreditCardAuthorizationCode")
+public String getCreditCardAuthorizationCode() {
+return creditCardAuthorizationCode;
+}
+
+@JsonProperty("CreditCardAuthorizationCode")
+public void setCreditCardAuthorizationCode(String creditCardAuthorizationCode) {
+this.creditCardAuthorizationCode = creditCardAuthorizationCode;
+}
+
+}        

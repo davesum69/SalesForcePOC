@@ -1,521 +1,274 @@
 package com.tmo.ordertranslator.modal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
-@XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-        "orderStatus",
-        "storeCode",
-        "flowType",
-        "applicationId",
-        "createdDate",
-        "locale",
-        "currency",
-        "orderNumber",
-        "emailFrom",
-        "totalItemCostBeforeTax",
-        "totalShippingCostBeforeTax",
-        "totalItemTaxes",
-        "totalShippingTaxes",
-        "totalTaxes",
-        "totalItemCostIncludingTax",
-        "totalShippingCostIncludingTax",
-        "totalLoanAmount",
-        "grandTotal",
-        "promotions",
-        "fields"
-    })
-    public class Header {
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-        @XmlElement(name = "OrderStatus", required = true)
-        protected String orderStatus;
-        @XmlElement(name = "StoreCode", required = true)
-        protected String storeCode;
-        @XmlElement(name = "FlowType", required = true)
-        protected String flowType;
-        @XmlElement(name = "ApplicationId", required = true)
-        protected String applicationId;
-        @XmlElement(name = "CreatedDate", required = true)
-        @XmlSchemaType(name = "dateTime")
-        protected XMLGregorianCalendar createdDate;
-        @XmlElement(name = "Locale", required = true)
-        protected String locale;
-        @XmlElement(name = "Currency", required = true)
-        protected String currency;
-        @XmlElement(name = "OrderNumber", required = true)
-        @XmlSchemaType(name = "unsignedLong")
-        protected BigInteger orderNumber;
-        @XmlElement(name = "EmailFrom", required = true)
-        protected String emailFrom;
-        @XmlElement(name = "TotalItemCostBeforeTax", required = true)
-        protected BigDecimal totalItemCostBeforeTax;
-        @XmlElement(name = "TotalShippingCostBeforeTax", required = true)
-        protected BigDecimal totalShippingCostBeforeTax;
-        @XmlElement(name = "TotalItemTaxes", required = true)
-        protected BigDecimal totalItemTaxes;
-        @XmlElement(name = "TotalShippingTaxes", required = true)
-        protected BigDecimal totalShippingTaxes;
-        @XmlElement(name = "TotalTaxes", required = true)
-        protected BigDecimal totalTaxes;
-        @XmlElement(name = "TotalItemCostIncludingTax", required = true)
-        protected BigDecimal totalItemCostIncludingTax;
-        @XmlElement(name = "TotalShippingCostIncludingTax", required = true)
-        protected BigDecimal totalShippingCostIncludingTax;
-        @XmlElement(name = "TotalLoanAmount", required = true)
-        protected BigDecimal totalLoanAmount;
-        @XmlElement(name = "GrandTotal", required = true)
-        protected BigDecimal grandTotal;
-        @XmlElement(name = "Promotions", required = true)
-        protected Promotions promotions;
-        @XmlElement(name = "Fields", required = true)
-        protected Fields fields;
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+"OrderStatus",
+"StoreCode",
+"FlowType",
+"ApplicationId",
+"CreatedDate",
+"Locale",
+"Currency",
+"OrderNumber",
+"EmailFrom",
+"TotalItemCostBeforeTax",
+"TotalShippingCostBeforeTax",
+"TotalItemTaxes",
+"TotalShippingTaxes",
+"TotalTaxes",
+"TotalItemCostIncludingTax",
+"TotalShippingCostIncludingTax",
+"TotalLoanAmount",
+"GrandTotal",
+"Promotions",
+"Fields"
+})
+public class Header {
 
-        /**
-         * Gets the value of the orderStatus property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getOrderStatus() {
-            return orderStatus;
-        }
+@JsonProperty("OrderStatus")
+private String orderStatus;
+@JsonProperty("StoreCode")
+private String storeCode;
+@JsonProperty("FlowType")
+private String flowType;
+@JsonProperty("ApplicationId")
+private String applicationId;
+@JsonProperty("CreatedDate")
+private String createdDate;
+@JsonProperty("Locale")
+private String locale;
+@JsonProperty("Currency")
+private String currency;
+@JsonProperty("OrderNumber")
+private String orderNumber;
+@JsonProperty("EmailFrom")
+private String emailFrom;
+@JsonProperty("TotalItemCostBeforeTax")
+private String totalItemCostBeforeTax;
+@JsonProperty("TotalShippingCostBeforeTax")
+private String totalShippingCostBeforeTax;
+@JsonProperty("TotalItemTaxes")
+private String totalItemTaxes;
+@JsonProperty("TotalShippingTaxes")
+private String totalShippingTaxes;
+@JsonProperty("TotalTaxes")
+private String totalTaxes;
+@JsonProperty("TotalItemCostIncludingTax")
+private String totalItemCostIncludingTax;
+@JsonProperty("TotalShippingCostIncludingTax")
+private String totalShippingCostIncludingTax;
+@JsonProperty("TotalLoanAmount")
+private String totalLoanAmount;
+@JsonProperty("GrandTotal")
+private String grandTotal;
+@JsonProperty("Promotions")
+private Promotions promotions;
+@JsonProperty("Fields")
+private Fields fields;
 
-        /**
-         * Sets the value of the orderStatus property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setOrderStatus(String value) {
-            this.orderStatus = value;
-        }
+@JsonProperty("OrderStatus")
+public String getOrderStatus() {
+return orderStatus;
+}
 
-        /**
-         * Gets the value of the storeCode property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getStoreCode() {
-            return storeCode;
-        }
+@JsonProperty("OrderStatus")
+public void setOrderStatus(String orderStatus) {
+this.orderStatus = orderStatus;
+}
 
-        /**
-         * Sets the value of the storeCode property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setStoreCode(String value) {
-            this.storeCode = value;
-        }
+@JsonProperty("StoreCode")
+public String getStoreCode() {
+return storeCode;
+}
 
-        /**
-         * Gets the value of the flowType property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getFlowType() {
-            return flowType;
-        }
+@JsonProperty("StoreCode")
+public void setStoreCode(String storeCode) {
+this.storeCode = storeCode;
+}
 
-        /**
-         * Sets the value of the flowType property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setFlowType(String value) {
-            this.flowType = value;
-        }
+@JsonProperty("FlowType")
+public String getFlowType() {
+return flowType;
+}
 
-        /**
-         * Gets the value of the applicationId property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getApplicationId() {
-            return applicationId;
-        }
+@JsonProperty("FlowType")
+public void setFlowType(String flowType) {
+this.flowType = flowType;
+}
 
-        /**
-         * Sets the value of the applicationId property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setApplicationId(String value) {
-            this.applicationId = value;
-        }
+@JsonProperty("ApplicationId")
+public String getApplicationId() {
+return applicationId;
+}
 
-        /**
-         * Gets the value of the createdDate property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link XMLGregorianCalendar }
-         *     
-         */
-        public XMLGregorianCalendar getCreatedDate() {
-            return createdDate;
-        }
+@JsonProperty("ApplicationId")
+public void setApplicationId(String applicationId) {
+this.applicationId = applicationId;
+}
 
-        /**
-         * Sets the value of the createdDate property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link XMLGregorianCalendar }
-         *     
-         */
-        public void setCreatedDate(XMLGregorianCalendar value) {
-            this.createdDate = value;
-        }
+@JsonProperty("CreatedDate")
+public String getCreatedDate() {
+return createdDate;
+}
 
-        /**
-         * Gets the value of the locale property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getLocale() {
-            return locale;
-        }
+@JsonProperty("CreatedDate")
+public void setCreatedDate(String createdDate) {
+this.createdDate = createdDate;
+}
 
-        /**
-         * Sets the value of the locale property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setLocale(String value) {
-            this.locale = value;
-        }
+@JsonProperty("Locale")
+public String getLocale() {
+return locale;
+}
 
-        /**
-         * Gets the value of the currency property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getCurrency() {
-            return currency;
-        }
+@JsonProperty("Locale")
+public void setLocale(String locale) {
+this.locale = locale;
+}
 
-        /**
-         * Sets the value of the currency property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setCurrency(String value) {
-            this.currency = value;
-        }
+@JsonProperty("Currency")
+public String getCurrency() {
+return currency;
+}
 
-        /**
-         * Gets the value of the orderNumber property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link BigInteger }
-         *     
-         */
-        public BigInteger getOrderNumber() {
-            return orderNumber;
-        }
+@JsonProperty("Currency")
+public void setCurrency(String currency) {
+this.currency = currency;
+}
 
-        /**
-         * Sets the value of the orderNumber property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link BigInteger }
-         *     
-         */
-        public void setOrderNumber(BigInteger value) {
-            this.orderNumber = value;
-        }
+@JsonProperty("OrderNumber")
+public String getOrderNumber() {
+return orderNumber;
+}
 
-        /**
-         * Gets the value of the emailFrom property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getEmailFrom() {
-            return emailFrom;
-        }
+@JsonProperty("OrderNumber")
+public void setOrderNumber(String orderNumber) {
+this.orderNumber = orderNumber;
+}
 
-        /**
-         * Sets the value of the emailFrom property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setEmailFrom(String value) {
-            this.emailFrom = value;
-        }
+@JsonProperty("EmailFrom")
+public String getEmailFrom() {
+return emailFrom;
+}
 
-        /**
-         * Gets the value of the totalItemCostBeforeTax property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link BigDecimal }
-         *     
-         */
-        public BigDecimal getTotalItemCostBeforeTax() {
-            return totalItemCostBeforeTax;
-        }
+@JsonProperty("EmailFrom")
+public void setEmailFrom(String emailFrom) {
+this.emailFrom = emailFrom;
+}
 
-        /**
-         * Sets the value of the totalItemCostBeforeTax property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link BigDecimal }
-         *     
-         */
-        public void setTotalItemCostBeforeTax(BigDecimal value) {
-            this.totalItemCostBeforeTax = value;
-        }
+@JsonProperty("TotalItemCostBeforeTax")
+public String getTotalItemCostBeforeTax() {
+return totalItemCostBeforeTax;
+}
 
-        /**
-         * Gets the value of the totalShippingCostBeforeTax property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link BigDecimal }
-         *     
-         */
-        public BigDecimal getTotalShippingCostBeforeTax() {
-            return totalShippingCostBeforeTax;
-        }
+@JsonProperty("TotalItemCostBeforeTax")
+public void setTotalItemCostBeforeTax(String totalItemCostBeforeTax) {
+this.totalItemCostBeforeTax = totalItemCostBeforeTax;
+}
 
-        /**
-         * Sets the value of the totalShippingCostBeforeTax property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link BigDecimal }
-         *     
-         */
-        public void setTotalShippingCostBeforeTax(BigDecimal value) {
-            this.totalShippingCostBeforeTax = value;
-        }
+@JsonProperty("TotalShippingCostBeforeTax")
+public String getTotalShippingCostBeforeTax() {
+return totalShippingCostBeforeTax;
+}
 
-        /**
-         * Gets the value of the totalItemTaxes property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link BigDecimal }
-         *     
-         */
-        public BigDecimal getTotalItemTaxes() {
-            return totalItemTaxes;
-        }
+@JsonProperty("TotalShippingCostBeforeTax")
+public void setTotalShippingCostBeforeTax(String totalShippingCostBeforeTax) {
+this.totalShippingCostBeforeTax = totalShippingCostBeforeTax;
+}
 
-        /**
-         * Sets the value of the totalItemTaxes property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link BigDecimal }
-         *     
-         */
-        public void setTotalItemTaxes(BigDecimal value) {
-            this.totalItemTaxes = value;
-        }
+@JsonProperty("TotalItemTaxes")
+public String getTotalItemTaxes() {
+return totalItemTaxes;
+}
 
-        /**
-         * Gets the value of the totalShippingTaxes property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link BigDecimal }
-         *     
-         */
-        public BigDecimal getTotalShippingTaxes() {
-            return totalShippingTaxes;
-        }
+@JsonProperty("TotalItemTaxes")
+public void setTotalItemTaxes(String totalItemTaxes) {
+this.totalItemTaxes = totalItemTaxes;
+}
 
-        /**
-         * Sets the value of the totalShippingTaxes property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link BigDecimal }
-         *     
-         */
-        public void setTotalShippingTaxes(BigDecimal value) {
-            this.totalShippingTaxes = value;
-        }
+@JsonProperty("TotalShippingTaxes")
+public String getTotalShippingTaxes() {
+return totalShippingTaxes;
+}
 
-        /**
-         * Gets the value of the totalTaxes property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link BigDecimal }
-         *     
-         */
-        public BigDecimal getTotalTaxes() {
-            return totalTaxes;
-        }
+@JsonProperty("TotalShippingTaxes")
+public void setTotalShippingTaxes(String totalShippingTaxes) {
+this.totalShippingTaxes = totalShippingTaxes;
+}
 
-        /**
-         * Sets the value of the totalTaxes property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link BigDecimal }
-         *     
-         */
-        public void setTotalTaxes(BigDecimal value) {
-            this.totalTaxes = value;
-        }
+@JsonProperty("TotalTaxes")
+public String getTotalTaxes() {
+return totalTaxes;
+}
 
-        /**
-         * Gets the value of the totalItemCostIncludingTax property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link BigDecimal }
-         *     
-         */
-        public BigDecimal getTotalItemCostIncludingTax() {
-            return totalItemCostIncludingTax;
-        }
+@JsonProperty("TotalTaxes")
+public void setTotalTaxes(String totalTaxes) {
+this.totalTaxes = totalTaxes;
+}
 
-        /**
-         * Sets the value of the totalItemCostIncludingTax property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link BigDecimal }
-         *     
-         */
-        public void setTotalItemCostIncludingTax(BigDecimal value) {
-            this.totalItemCostIncludingTax = value;
-        }
+@JsonProperty("TotalItemCostIncludingTax")
+public String getTotalItemCostIncludingTax() {
+return totalItemCostIncludingTax;
+}
 
-        /**
-         * Gets the value of the totalShippingCostIncludingTax property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link BigDecimal }
-         *     
-         */
-        public BigDecimal getTotalShippingCostIncludingTax() {
-            return totalShippingCostIncludingTax;
-        }
+@JsonProperty("TotalItemCostIncludingTax")
+public void setTotalItemCostIncludingTax(String totalItemCostIncludingTax) {
+this.totalItemCostIncludingTax = totalItemCostIncludingTax;
+}
 
-        /**
-         * Sets the value of the totalShippingCostIncludingTax property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link BigDecimal }
-         *     
-         */
-        public void setTotalShippingCostIncludingTax(BigDecimal value) {
-            this.totalShippingCostIncludingTax = value;
-        }
+@JsonProperty("TotalShippingCostIncludingTax")
+public String getTotalShippingCostIncludingTax() {
+return totalShippingCostIncludingTax;
+}
 
-        /**
-         * Gets the value of the totalLoanAmount property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link BigDecimal }
-         *     
-         */
-        public BigDecimal getTotalLoanAmount() {
-            return totalLoanAmount;
-        }
+@JsonProperty("TotalShippingCostIncludingTax")
+public void setTotalShippingCostIncludingTax(String totalShippingCostIncludingTax) {
+this.totalShippingCostIncludingTax = totalShippingCostIncludingTax;
+}
 
-        /**
-         * Sets the value of the totalLoanAmount property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link BigDecimal }
-         *     
-         */
-        public void setTotalLoanAmount(BigDecimal value) {
-            this.totalLoanAmount = value;
-        }
+@JsonProperty("TotalLoanAmount")
+public String getTotalLoanAmount() {
+return totalLoanAmount;
+}
 
-        /**
-         * Gets the value of the grandTotal property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link BigDecimal }
-         *     
-         */
-        public BigDecimal getGrandTotal() {
-            return grandTotal;
-        }
+@JsonProperty("TotalLoanAmount")
+public void setTotalLoanAmount(String totalLoanAmount) {
+this.totalLoanAmount = totalLoanAmount;
+}
 
-        /**
-         * Sets the value of the grandTotal property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link BigDecimal }
-         *     
-         */
-        public void setGrandTotal(BigDecimal value) {
-            this.grandTotal = value;
-        }
+@JsonProperty("GrandTotal")
+public String getGrandTotal() {
+return grandTotal;
+}
 
-        /**
-         * Gets the value of the promotions property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Order.Header.Promotions }
-         *     
-         */
-        
+@JsonProperty("GrandTotal")
+public void setGrandTotal(String grandTotal) {
+this.grandTotal = grandTotal;
+}
+
+@JsonProperty("Promotions")
+public Promotions getPromotions() {
+return promotions;
+}
+
+@JsonProperty("Promotions")
+public void setPromotions(Promotions promotions) {
+this.promotions = promotions;
+}
+
+@JsonProperty("Fields")
+public Fields getFields() {
+return fields;
+}
+
+@JsonProperty("Fields")
+public void setFields(Fields fields) {
+this.fields = fields;
+}
+
 }

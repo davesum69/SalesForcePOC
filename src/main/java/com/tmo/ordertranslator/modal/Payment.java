@@ -1,272 +1,117 @@
 package com.tmo.ordertranslator.modal;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
-
-/**
- * <p>Java class for anonymous complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="PaymentId" type="{http://www.w3.org/2001/XMLSchema}unsignedInt"/>
- *         &lt;element name="Amount" type="{http://www.w3.org/2001/XMLSchema}decimal"/>
- *         &lt;element name="TransactionType" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="TransactionDate" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
- *         &lt;element name="PaymentStatus" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="jPaymentId" type="{http://www.w3.org/2001/XMLSchema}unsignedLong"/>
- *         &lt;element name="PaymentMethod">
- *           &lt;complexType>
- *             &lt;complexContent>
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                 &lt;sequence>
- *                   &lt;element name="PaymentType" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                   &lt;element name="TSafeAlias" type="{http://www.w3.org/2001/XMLSchema}unsignedInt"/>
- *                   &lt;element name="CreditCardType" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                   &lt;element name="CreditCardLastFourDigits" type="{http://www.w3.org/2001/XMLSchema}unsignedShort"/>
- *                   &lt;element name="CreditCardExpirationMonth" type="{http://www.w3.org/2001/XMLSchema}unsignedByte"/>
- *                   &lt;element name="CreditCardExpirationYear" type="{http://www.w3.org/2001/XMLSchema}unsignedShort"/>
- *                   &lt;element name="CreditCardNameOnAccount" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                   &lt;element name="CreditCardAuthorizationCode" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                 &lt;/sequence>
- *               &lt;/restriction>
- *             &lt;/complexContent>
- *           &lt;/complexType>
- *         &lt;/element>
- *         &lt;element name="ShipmentId" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "paymentId",
-    "amount",
-    "transactionType",
-    "transactionDate",
-    "paymentStatus",
-    "jPaymentId",
-    "paymentMethod",
-    "shipmentId"
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+"PaymentId",
+"Amount",
+"TransactionType",
+"TransactionDate",
+"PaymentStatus",
+"jPaymentId",
+"PaymentMethod",
+"ShipmentId"
 })
-public  class Payment {
+public class Payment {
 
-    @XmlElement(name = "PaymentId")
-    @XmlSchemaType(name = "unsignedInt")
-    protected long paymentId;
-    @XmlElement(name = "Amount", required = true)
-    protected BigDecimal amount;
-    @XmlElement(name = "TransactionType", required = true)
-    protected String transactionType;
-    @XmlElement(name = "TransactionDate", required = true)
-    @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar transactionDate;
-    @XmlElement(name = "PaymentStatus", required = true)
-    protected String paymentStatus;
-    @XmlElement(required = true)
-    @XmlSchemaType(name = "unsignedLong")
-    protected BigInteger jPaymentId;
-    @XmlElement(name = "PaymentMethod", required = true)
-    protected PaymentMethod paymentMethod;
-    @XmlElement(name = "ShipmentId", required = true)
-    protected String shipmentId;
+@JsonProperty("PaymentId")
+private String paymentId;
+@JsonProperty("Amount")
+private String amount;
+@JsonProperty("TransactionType")
+private String transactionType;
+@JsonProperty("TransactionDate")
+private String transactionDate;
+@JsonProperty("PaymentStatus")
+private String paymentStatus;
+@JsonProperty("jPaymentId")
+private String jPaymentId;
+@JsonProperty("PaymentMethod")
+private PaymentMethod paymentMethod;
+@JsonProperty("ShipmentId")
+private String shipmentId;
 
-    /**
-     * Gets the value of the paymentId property.
-     * 
-     */
-    public long getPaymentId() {
-        return paymentId;
-    }
+@JsonProperty("PaymentId")
+public String getPaymentId() {
+return paymentId;
+}
 
-    /**
-     * Sets the value of the paymentId property.
-     * 
-     */
-    public void setPaymentId(long value) {
-        this.paymentId = value;
-    }
+@JsonProperty("PaymentId")
+public void setPaymentId(String paymentId) {
+this.paymentId = paymentId;
+}
 
-    /**
-     * Gets the value of the amount property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
-     */
-    public BigDecimal getAmount() {
-        return amount;
-    }
+@JsonProperty("Amount")
+public String getAmount() {
+return amount;
+}
 
-    /**
-     * Sets the value of the amount property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *     
-     */
-    public void setAmount(BigDecimal value) {
-        this.amount = value;
-    }
+@JsonProperty("Amount")
+public void setAmount(String amount) {
+this.amount = amount;
+}
 
-    /**
-     * Gets the value of the transactionType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTransactionType() {
-        return transactionType;
-    }
+@JsonProperty("TransactionType")
+public String getTransactionType() {
+return transactionType;
+}
 
-    /**
-     * Sets the value of the transactionType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTransactionType(String value) {
-        this.transactionType = value;
-    }
+@JsonProperty("TransactionType")
+public void setTransactionType(String transactionType) {
+this.transactionType = transactionType;
+}
 
-    /**
-     * Gets the value of the transactionDate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public XMLGregorianCalendar getTransactionDate() {
-        return transactionDate;
-    }
+@JsonProperty("TransactionDate")
+public String getTransactionDate() {
+return transactionDate;
+}
 
-    /**
-     * Sets the value of the transactionDate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setTransactionDate(XMLGregorianCalendar value) {
-        this.transactionDate = value;
-    }
+@JsonProperty("TransactionDate")
+public void setTransactionDate(String transactionDate) {
+this.transactionDate = transactionDate;
+}
 
-    /**
-     * Gets the value of the paymentStatus property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPaymentStatus() {
-        return paymentStatus;
-    }
+@JsonProperty("PaymentStatus")
+public String getPaymentStatus() {
+return paymentStatus;
+}
 
-    /**
-     * Sets the value of the paymentStatus property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPaymentStatus(String value) {
-        this.paymentStatus = value;
-    }
+@JsonProperty("PaymentStatus")
+public void setPaymentStatus(String paymentStatus) {
+this.paymentStatus = paymentStatus;
+}
 
-    /**
-     * Gets the value of the jPaymentId property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getJPaymentId() {
-        return jPaymentId;
-    }
+@JsonProperty("jPaymentId")
+public String getJPaymentId() {
+return jPaymentId;
+}
 
-    /**
-     * Sets the value of the jPaymentId property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setJPaymentId(BigInteger value) {
-        this.jPaymentId = value;
-    }
+@JsonProperty("jPaymentId")
+public void setJPaymentId(String jPaymentId) {
+this.jPaymentId = jPaymentId;
+}
 
-    /**
-     * Gets the value of the paymentMethod property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Order.Payments.Payment.PaymentMethod }
-     *     
-     */
-    public PaymentMethod getPaymentMethod() {
-        return paymentMethod;
-    }
+@JsonProperty("PaymentMethod")
+public PaymentMethod getPaymentMethod() {
+return paymentMethod;
+}
 
-    /**
-     * Sets the value of the paymentMethod property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Order.Payments.Payment.PaymentMethod }
-     *     
-     */
-    public void setPaymentMethod(PaymentMethod value) {
-        this.paymentMethod = value;
-    }
+@JsonProperty("PaymentMethod")
+public void setPaymentMethod(PaymentMethod paymentMethod) {
+this.paymentMethod = paymentMethod;
+}
 
-    /**
-     * Gets the value of the shipmentId property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getShipmentId() {
-        return shipmentId;
-    }
+@JsonProperty("ShipmentId")
+public String getShipmentId() {
+return shipmentId;
+}
 
-    /**
-     * Sets the value of the shipmentId property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setShipmentId(String value) {
-        this.shipmentId = value;
-    }
+@JsonProperty("ShipmentId")
+public void setShipmentId(String shipmentId) {
+this.shipmentId = shipmentId;
+}
+
 }

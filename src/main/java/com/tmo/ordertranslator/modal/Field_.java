@@ -1,5 +1,6 @@
 package com.tmo.ordertranslator.modal;
 
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -9,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 "Key",
 "Value"
 })
-public class Field {
+public class Field_ {
 
 @JsonProperty("Key")
 private String key;
