@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
@@ -33,51 +34,38 @@ public class OrderTranslatorController {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    @PostMapping(value = "/order", produces = MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.TEXT_EVENT_STREAM_VALUE)
+    @PostMapping(value = "/order", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Order readXml(@RequestBody String xmlData , HttpServletRequest httpServletRequest) {
         try {
-             
-             System.out.println(xmlData);
-           
-                // reading xml data from payload and saving data in file  AccessoryOnlyEp.xml
-             
-        /*      File sourceFile = new File("C://NodeJs//AccessoryOnlyEp.xml"); 
-              if(!sourceFile.exists())
-               { 
-                  sourceFile.createNewFile(); 
-                  } 
-              FileWriter fileWriter = new FileWriter(sourceFile); 
-              
-             bufferedWriter = new BufferedWriter(fileWriter);
-               bufferedWriter.write(xmlData);*/
-             
-           
-
-               File sourceFile = new File("C://NodeJs//AccessoryOnlyEp.xml");
-               File templateFile = new File("C://NodeJs//OrderTransform.xsl");
+            ByteArrayInputStream inputStream = new ByteArrayInputStream(xmlData.getBytes());
+            File templateFile = new File("C://NodeJs//OrderTransform.xsl");
             
             TransformerFactoryImpl transformerFactoryImpl = new net.sf.saxon.TransformerFactoryImpl();
             transformerFactoryImpl.setAttribute("http://saxon.sf.net/feature/version-warning", Boolean.FALSE);
           
             StreamSource streamTemplateSource = new StreamSource(new FileInputStream(templateFile));
             Transformer transformer = transformerFactoryImpl.newTransformer(streamTemplateSource);
-            StreamSource streamSource = new StreamSource(new FileInputStream(sourceFile));
+            StreamSource streamSource = new StreamSource(inputStream);
             StringWriter stringWriter = new StringWriter();
             StreamResult streamResult = new StreamResult(stringWriter);
             transformer.transform(streamSource, streamResult);
-            
+
             //conversion xml to json
             XmlMapper xmlMapper = new XmlMapper();
-            JsonNode jsonNode = xmlMapper.readTree(stringWriter.toString());
+            String xmlInputToJSONMapper = stringWriter.toString();
+            int counter = 0;
+            while(xmlInputToJSONMapper.contains("#REFID_PLACE_HOLDER#")){
+                counter++;
+                xmlInputToJSONMapper = xmlInputToJSONMapper.replaceFirst("#REFID_PLACE_HOLDER#","ref"+counter);
+            }
+            counter = 0;
+            JsonNode jsonNode = xmlMapper.readTree(xmlInputToJSONMapper);//stringWriter.toString());
             ObjectMapper objectMapper = new ObjectMapper();
             String jsonData = objectMapper.writeValueAsString(jsonNode);
-            System.out.println("After conversion from xml to json = "+jsonData);
-             
          } catch (Exception e) {
 
         }
-
         return null;
     }
 }
