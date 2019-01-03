@@ -1,22 +1,39 @@
 package com.tmo.ordertranslator.presentation;
 
+import net.sf.saxon.TransformerFactoryImpl;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import com.tmo.ordertranslator.modal.Order;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.StringWriter;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 
 @RestController
 public class OrderTranslatorController {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
-/*
+
     @PostMapping(value = "/order", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Order readXml(@RequestBody String xmlData, HttpServletRequest httpServletRequest) {
@@ -61,10 +78,10 @@ public class OrderTranslatorController {
 
         return null;
     }
-*/
+
     @PostMapping(value = "/orderTest", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public String orderTest(@RequestBody String xmlData, HttpServletRequest httpServletRequest) {
+    public String orderTest(HttpServletRequest httpServletRequest) {
         return "Test successfull";
     }
 }
