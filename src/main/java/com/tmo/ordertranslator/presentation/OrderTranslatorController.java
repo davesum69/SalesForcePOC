@@ -65,6 +65,6 @@ public class OrderTranslatorController {
     @PostMapping(value = "/orderTest", produces = MediaType.TEXT_XML_VALUE)
     @ResponseBody
     public String orderTest(HttpServletRequest httpServletRequest) {
-        return "Test successfull";
+        return "Test successfully completed";
     }
 }
