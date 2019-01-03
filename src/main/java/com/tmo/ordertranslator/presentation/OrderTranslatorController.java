@@ -70,6 +70,6 @@ public class OrderTranslatorController {
     @ResponseBody
     public String orderTest(HttpServletRequest httpServletRequest) {
 
-        return "Test successfully completed"+demoname;
+        return "Test successfully completed >>> "+demoname;
     }
 }
