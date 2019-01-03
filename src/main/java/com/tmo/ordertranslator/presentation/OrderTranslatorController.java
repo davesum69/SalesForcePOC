@@ -8,11 +8,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class OrderTranslatorController {
+
+    @Value("${demo.name}")
+    private String demoname;
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
@@ -65,6 +69,7 @@ public class OrderTranslatorController {
     @PostMapping(value = "/orderTest", produces = MediaType.TEXT_XML_VALUE)
     @ResponseBody
     public String orderTest(HttpServletRequest httpServletRequest) {
-        return "Test successfully completed";
+
+        return "Test successfully completed"+demoname;
     }
 }
