@@ -3,9 +3,9 @@ com\tmo\ordertranslator\modal\Shipments.class
 com\tmo\ordertranslator\modal\LineItems.class
 com\tmo\ordertranslator\modal\Order.class
 com\tmo\ordertranslator\OrderTranslatorApplication.class
+com\tmo\ordertranslator\modal\Field_.class
 com\tmo\ordertranslator\modal\ShippingAddress.class
 com\tmo\ordertranslator\modal\Field.class
-com\tmo\ordertranslator\modal\ShippingTaxLines.class
 com\tmo\ordertranslator\modal\Options.class
 com\tmo\ordertranslator\constant\OrderTranslatorConstant.class
 com\tmo\ordertranslator\modal\TaxLines.class
@@ -20,5 +20,6 @@ com\tmo\ordertranslator\modal\Promotions.class
 com\tmo\ordertranslator\modal\PaymentMethod.class
 com\tmo\ordertranslator\modal\TaxLine.class
 com\tmo\ordertranslator\modal\Address.class
+com\tmo\ordertranslator\modal\Fields_.class
 com\tmo\ordertranslator\modal\Customer.class
 com\tmo\ordertranslator\modal\Payments.class
