@@ -36,14 +36,14 @@ public class OrderTranslatorController {
 
     @PostMapping(value = "/order", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public Order readXml(@RequestBody String xmlData , HttpServletRequest httpServletRequest) {
+    public Order readXml(@RequestBody String xmlData, HttpServletRequest httpServletRequest) {
         try {
             ByteArrayInputStream inputStream = new ByteArrayInputStream(xmlData.getBytes());
             File templateFile = new File("C://NodeJs//OrderTransform.xsl");
-            
+
             TransformerFactoryImpl transformerFactoryImpl = new net.sf.saxon.TransformerFactoryImpl();
             transformerFactoryImpl.setAttribute("http://saxon.sf.net/feature/version-warning", Boolean.FALSE);
-          
+
             StreamSource streamTemplateSource = new StreamSource(new FileInputStream(templateFile));
             Transformer transformer = transformerFactoryImpl.newTransformer(streamTemplateSource);
             StreamSource streamSource = new StreamSource(inputStream);
@@ -55,17 +55,33 @@ public class OrderTranslatorController {
             XmlMapper xmlMapper = new XmlMapper();
             String xmlInputToJSONMapper = stringWriter.toString();
             int counter = 0;
-            while(xmlInputToJSONMapper.contains("#REFID_PLACE_HOLDER#")){
+            while (xmlInputToJSONMapper.contains("#REFID_PLACE_HOLDER#")) {
                 counter++;
-                xmlInputToJSONMapper = xmlInputToJSONMapper.replaceFirst("#REFID_PLACE_HOLDER#","ref"+counter);
+                xmlInputToJSONMapper = xmlInputToJSONMapper.replaceFirst("#REFID_PLACE_HOLDER#", "ref" + counter);
             }
+            System.out.println("Intermediate XML before JSON >>>" + xmlInputToJSONMapper);
             counter = 0;
-            JsonNode jsonNode = xmlMapper.readTree(xmlInputToJSONMapper);//stringWriter.toString());
-            ObjectMapper objectMapper = new ObjectMapper();
-            String jsonData = objectMapper.writeValueAsString(jsonNode);
-         } catch (Exception e) {
 
+
+            File templateFileJSON = new File("C://NodeJs//xml2json-2.xsl");
+            StreamSource streamTemplateSourceJSON = new StreamSource(new FileInputStream(templateFileJSON));
+            Transformer transformerJSON = transformerFactoryImpl.newTransformer(streamTemplateSourceJSON);
+            inputStream = new ByteArrayInputStream(xmlInputToJSONMapper.getBytes());
+            streamSource = new StreamSource(inputStream);
+            stringWriter = new StringWriter();
+            streamResult = new StreamResult(stringWriter);
+            transformerJSON.transform(streamSource, streamResult);
+            System.out.println("Actual JSON >>>" + stringWriter.toString());
+        } catch (Exception e) {
+            System.out.println("ERROR >>> "+e);
         }
+
         return null;
+    }
+
+    @PostMapping(value = "/orderTest", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String orderTest(@RequestBody String xmlData, HttpServletRequest httpServletRequest) {
+        return "Test successfull";
     }
 }
