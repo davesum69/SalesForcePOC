@@ -62,7 +62,7 @@ public class OrderTranslatorController {
         return null;
     }
 
-    @PostMapping(value = "/orderTest", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/orderTest", produces = MediaType.TEXT_XML_VALUE)
     @ResponseBody
     public String orderTest(HttpServletRequest httpServletRequest) {
         return "Test successfull";
